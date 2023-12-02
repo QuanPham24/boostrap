@@ -1,0 +1,189 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    font-family: 'Hind', sans-serif;
+    /* rem ho tro trong giai doan bao tri web */
+/* 1rem = 18px */
+/* neu ko khai bao fond-size, mac ding 1rem = 16px */
+    font-size: 18px;
+}
+
+/* HEADER */
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* z-index co so lon hon auto
+    co so: so lon de so nho
+    khong danh so la auto
+    =>the tao ra sau > the truoc do */
+    z-index: 10;
+    /* z-index: 99999: chi dung khi web co cau truc lon, phuc tap */
+
+    width: 100%;
+}
+
+
+
+
+header .navbar-brand{
+    /* 1rem = 18px */
+    font-size: 2rem;
+}
+
+#portfolio__navbar .nav-link{
+    font-size: 1rem;
+    padding: 0 0.833rem;
+    /* truoc hover */
+    color: white;
+    transition: all .5s;
+}
+
+#portfolio__navbar .nav-item:hover .nav-link{
+    color: #35a22c;
+}
+
+#portfolio__navbar .nav-link::after{
+    content: "";
+    display: block;
+    /* truoc hover */
+    width: 0;
+    height: 5px;
+
+    background-color: #35a22c;
+    transition: 0.5s;
+}
+
+/* sau hover */
+
+#portfolio__navbar .nav-item:hover .nav-link::after{
+    width: 100%;
+}
+
+/* the li co class active thi after cua nav-link luon xuat hien */
+
+#portfolio__navbar .active .nav-link::after{
+    width: 100%;
+}
+
+#portfolio__navbar .active .nav-link {
+    color: #35a22c;
+}
+
+
+/* nam duoi cung cua vung noi dung chinh header
++ de doc code
++ bi dai code */
+/* Desktop first: max-width (man hinh lon truoc -> nho sau) 
+ mobile: min-width (man hinh nho truoc -> lon sau */
+
+
+@media screen  and (max-width:992px){
+    /* kich tuoc toi da vung man hinh <= 992px */
+    /* 1 + 10 + 10 => 21 */
+    header .navbar .navbar-toggler {
+        background-color: #35a22c;
+    }
+    #portfolio__navbar{
+        background-color: white;
+    }
+    #portfolio__navbar .nav-link{
+        color:#35a22c;
+    }
+    #portfolio__navbar{
+        background-color: white;
+    }
+    #portfolio__navbar .nav-item:hover{
+        background-color: #35a22c;
+        /* color: white; */
+    }
+
+    #portfolio__navbar .navbar-nav .nav-item:hover .nav-link{
+        color: white;
+    }
+    
+    #portfolio__navbar .nav-link::after{
+        /* opacity: 0; the trong sout nhung van chiem dien tich tren UI
+        dung duoc voi transition*/
+
+        /* an hoan toan the => khong dung voi hieu ung an hien 
+        khong dung duoc voi transition */
+        display: none;
+    }
+}
+
+
+
+/* CAROUSEL */
+/* goi cac the img la con truc tiep cap 1 cua carousel item */
+#carouselPortMain .carousel-item > img{
+    /* vh: thuong dung o main carousel */
+    height: 100vh;
+    object-fit: cover;
+}
+
+#carouselPortMain .carousel-caption img{
+    /* hinh co dang hinh vuong thi chi can xet width */
+    width: 140px;
+}
+
+/* chinh duong gach indicator thi chuyen chu nhat => hinh vuong => tron */
+
+.carousel-indicators li{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /* background-color: gray; */
+}
+.carousel-indicators .active{
+    background-color: #35a22c;
+}
+
+/* can giua voi position absolute cho moi man hinh*/
+#carouselPortMain .carousel-caption{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+/* PROJECTS */
+.projects{
+    padding: 100px 0;
+}
+
+
+/* AWARD */
+/* img: khi can SEO (khoi products) 
+background-image:anh trang tri khong can SEO(co the dung img
+nhung xhi nen dung voi anh kich thuoc nho */
+.award{
+    padding: 70px;
+    background-image: url(../img/memphis_3.png);
+    background-size: 50%;
+    background-position: left bottom;
+    /* neu nen nho co size nho hon the cha => 
+    thi lap lai de phu het the cha */
+    background-repeat: no-repeat;
+}
+
+.awards__left{
+    padding: 25px;
+    background: rgba( 255, 255, 255, 0.7 );
+    border: 1px solid rgba( 255, 255, 255, 0.5 );
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    box-shadow: 0 0px 32px 0 rgba( 0, 0, 0, 0.37 );
+}
+
+
+/* toan bo code reponsive nam duoi cung cua css
+uu diem: tiet kiem code
+kho doc code */
